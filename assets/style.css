@@ -1,0 +1,213 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.login {
+    background-color: rgb(67, 70, 71);
+    background-image: url('https://www.hikvision.com/content/dam/hikvision/en/marketing/image/solution/banking/overall/Banking-BG1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+}
+    .login h1 {
+        padding-bottom: 20px;
+        color: white;
+    }
+    .login form {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        width: 300px;
+    }
+        .login form input {
+            width: 200px;
+            align-self: center;
+            margin-bottom: 10px;
+            padding-left: 5px;
+            border-radius: 5px;
+            height: 20px;
+            border: none;
+        }
+        .login form label {
+            color: white;
+        }
+        .login form button {
+            width: 100px;
+            align-self: center;
+            margin: 10px 0;
+            background-color: rgb(194, 173, 54);
+            padding: 5px 20px;
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+.header {
+    background: rgb(185,185,90);
+    background: linear-gradient(270deg, rgba(185,185,90,1) 0%, rgba(0,0,0,0.5283825477857269) 100%);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+    .header .employee {
+        margin: 0;
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+        align-self: center;
+    }
+    .header .links .header-button{
+        background-color: black;
+        margin: 0 10px;
+        padding: 5px 15px;
+        cursor: pointer;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px black;
+    }
+.content {
+    padding: 20px;
+}
+    .content h1 {
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px grey;
+    }
+    .content .infoAboutAccount {
+        margin: 10px 0;
+    }
+    .content .moneyForm {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+    }
+    .content .moneyForm input {
+        border-radius: 5px;
+        border: 1px solid grey;
+        height: 20px;
+        padding-left: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .content .moneyForm button {
+        background-color: green;
+        width: 70px;
+        margin: 10px 0 0 0;
+        padding: 5px 15px;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px grey;
+    }
+    .content .addSuccess {
+        color: green;
+        margin-bottom: 10px;
+    }
+    .content .create-button {
+        background-color: black;
+        margin: 20px 0px;
+        padding: 5px 15px;
+        cursor: pointer;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 5px 10px 18px #888888;
+    }
+.account {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+}
+    .account .account-info {
+        display: flex;
+    }
+        .account .account-info p{
+            margin: 0 10px;
+            align-self: center;
+        }
+        .account .account-info .name{
+            width: 70px;
+        }
+        .account .account-info .surname{
+            width: 90px;
+        }
+        .account .account-info .id{
+            width: 90px;
+        }
+        .account .account-info .bank-account{
+            width: 170px;
+        }
+        .account .account-info .balance{
+            width: 100px;
+        }
+    .account .account-actions {
+        display: flex;
+    }
+        .account .account-actions button{
+            background-color: green;
+            width: 70px;
+            margin: 5px 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px grey;
+        }
+        .account .account-actions .delete{
+            background-color: red;
+        }
+        .account .account-actions .take{
+            background-color: blue;
+        }
+
+.newAccount .input {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+.newAccount .create-account {
+    display: inline-block;
+    background-color: green;
+    margin: 10px 0 0 0;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px grey;
+}
+    .newAccount .input input{
+        width: 270px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        height: 20px;
+        padding-left: 5px;
+        margin-top: 5px;
+    }
+    .addWrong{
+        color: red;
+        margin-top: 10px;
+    }
+
+@media (max-width: 925px){
+    .account .account-info {
+        flex-direction: column;
+    }
+    .account .account-info p{
+        align-self: flex-start;
+        margin: 0px;
+    }
+}
+
+@media (max-width: 500px){
+    .account .account-actions {
+        flex-direction: column;
+    }
+}
+
+ 
