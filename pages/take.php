@@ -31,11 +31,20 @@ if(isset($_POST['take2'])) {
     $index = $_POST['take2'];
     $userBalance = $db[$index]['balance'];
     $wantToTake = $_POST['toTake'];
+    // jei vietoj '.' įvedė ',' pakeičiu.
+    if(!is_numeric($wantToTake)) {
+        $searchForValue = ',';
+        $stringValue = $wantToTake;
+        if(strpos($stringValue, $searchForValue) !== false ) {
+            $wantToTake = str_replace(',', '.', $wantToTake);
+        }
+    }
     if (!is_numeric($wantToTake)) {
         $_SESSION['takeNotNumeric'] = true;
         header('Location: '. $mainUrl . $additionallUrl .'?p=take');
         die;
     } else if($userBalance - $wantToTake >= 0) {
+        $wantToTake = number_format($wantToTake, 2);
         $db[$index]['balance'] -= $wantToTake;
         $_SESSION['takeSuccess'] = true;
         $_SESSION['takeSuccessQty'] = $wantToTake;

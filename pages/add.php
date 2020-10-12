@@ -30,13 +30,21 @@ foreach($db as $key => $value) {
 if(isset($_POST['index'])) {
     $addQty = $_POST['qty'];
     $index = $_POST['index'];
+    // jei vietoj '.' įvedė ',' pakeičiu.
+    if(!is_numeric($addQty)) {
+        $searchForValue = ',';
+        $stringValue = $addQty;
+        if(strpos($stringValue, $searchForValue) !== false ) {
+            $addQty = str_replace(',', '.', $addQty);
+        }
+    }
     if(!is_numeric($addQty)) {
         $_SESSION['addNotNumeric'] = true;
-        // $_SESSION['addIndex'] = $db[$index]['id'];
         header('Location: '. $mainUrl . $additionallUrl .'?p=add');
         die;
     } else {
-        $db[$index]['balance'] += $_POST['qty'];
+        $addQty = number_format($addQty, 2);
+        $db[$index]['balance'] += $addQty;
         $_SESSION['addMoneySuccess'] = true;;
         $_SESSION['addMoneySuccessAccount'] = $db[$index]['bankAccount'];
         $_SESSION['addMoneySuccessQty'] = $addQty;
