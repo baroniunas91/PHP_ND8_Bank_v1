@@ -44,7 +44,7 @@ if(isset($_POST['take2'])) {
         header('Location: '. $mainUrl . $additionallUrl .'?p=take');
         die;
     } else if($userBalance - $wantToTake >= 0) {
-        $wantToTake = number_format($wantToTake, 2);
+        $wantToTake = round($wantToTake, 2);
         $db[$index]['balance'] -= $wantToTake;
         $_SESSION['takeSuccess'] = true;
         $_SESSION['takeSuccessQty'] = $wantToTake;

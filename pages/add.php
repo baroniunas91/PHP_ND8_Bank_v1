@@ -43,7 +43,7 @@ if(isset($_POST['index'])) {
         header('Location: '. $mainUrl . $additionallUrl .'?p=add');
         die;
     } else {
-        $addQty = number_format($addQty, 2);
+        $addQty = round($addQty, 2);
         $db[$index]['balance'] += $addQty;
         $_SESSION['addMoneySuccess'] = true;;
         $_SESSION['addMoneySuccessAccount'] = $db[$index]['bankAccount'];
