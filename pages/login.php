@@ -27,6 +27,7 @@ if(!empty($_POST)) {
 <body>
     <div class="login">
         <h1>Welcome to my bank. Please login!</h1>
+        <h1>Name: Jonas Psw: 1234</h1>
         <form action="" method="post">
             <label for="name">Name:</label>
             <input type="text" name="name">
