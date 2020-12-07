@@ -42,7 +42,7 @@ if(isset($_POST['index'])) {
         $_SESSION['addNotNumeric'] = true;
         header('Location: '. $mainUrl . $additionallUrl .'?p=add');
         die;
-    } else {
+    } else if ($addQty >= 0) {
         $addQty = round($addQty, 2);
         $db[$index]['balance'] += $addQty;
         $_SESSION['addMoneySuccess'] = true;;
@@ -51,6 +51,11 @@ if(isset($_POST['index'])) {
         file_put_contents(__DIR__ . '/../data/accountsData.json', json_encode($db));
         unset($_SESSION['addIndex']);
         header('Location: '. $mainUrl . $additionallUrl .'?p=main');
+        die;
+    } else {
+        $_SESSION['addNegative'] = true;
+        $_SESSION['addIndex'] = $db[$index]['id'];
+        header('Location: '. $mainUrl . $additionallUrl .'?p=add');
         die;
     }
 }
@@ -70,6 +75,11 @@ require __DIR__ . '/header.php';
             <p class="addWrong">Please enter a number!</p>
         <?php 
         unset($_SESSION['addNotNumeric']);
+        endif; ?>
+        <?php if(isset($_SESSION['addNegative'])) : ?>
+            <p class="addWrong">You can't add negative number!</p>
+        <?php 
+        unset($_SESSION['addNegative']);
         endif; ?>
         <form action="" method="get">
             <button class="create-button" type="submit" name="createAccountBack" value="1">Back to accounts list</button>

@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-// $mainUrl = 'http://localhost';
-// $additionallUrl = '/BIT/ND8_Bankas_v1/';
+$mainUrl = 'http://localhost';
+$additionallUrl = '/BIT/ND8_Bankas_v1/';
 // $mainUrl = 'https://rimanega.com';
 // $additionallUrl = '/';
-$mainUrl = 'https://erbars.000webhostapp.com';
-$additionallUrl = '/';
+// $mainUrl = 'https://erbars.000webhostapp.com';
+// $additionallUrl = '/';
 
 $_SESSION['mainUrl'] = $mainUrl;
 $_SESSION['additionallUrl'] = $additionallUrl;

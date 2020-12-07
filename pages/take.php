@@ -43,7 +43,7 @@ if(isset($_POST['take2'])) {
         $_SESSION['takeNotNumeric'] = true;
         header('Location: '. $mainUrl . $additionallUrl .'?p=take');
         die;
-    } else if($userBalance - $wantToTake >= 0) {
+    } else if($userBalance - $wantToTake >= 0 && $wantToTake >= 0) {
         $wantToTake = round($wantToTake, 2);
         $db[$index]['balance'] -= $wantToTake;
         $_SESSION['takeSuccess'] = true;
@@ -52,6 +52,11 @@ if(isset($_POST['take2'])) {
         file_put_contents(__DIR__ . '/../data/accountsData.json', json_encode($db));
         unset($_SESSION['temp']);
         header('Location: '. $mainUrl . $additionallUrl .'?p=main');
+        die;
+    } else if ($wantToTake < 0) {
+        $_SESSION['takeNegative'] = true;
+        $_SESSION['temp'] = $db[$index]['id'];
+        header('Location: '. $mainUrl . $additionallUrl .'?p=take');
         die;
     } else {
         $_SESSION['takeFalse'] = true;
@@ -76,6 +81,11 @@ require __DIR__ . '/header.php';
             <p class="addWrong">Account balance can't be negative!</p>
         <?php 
         unset($_SESSION['takeFalse']);
+        endif; ?>
+        <?php if(isset($_SESSION['takeNegative'])) : ?>
+            <p class="addWrong">You can't add negative number!</p>
+        <?php 
+        unset($_SESSION['takeNegative']);
         endif; ?>
         <?php if(isset($_SESSION['takeNotNumeric'])) : ?>
             <p class="addWrong">Please enter a number!</p>
